@@ -1,0 +1,85 @@
+<div class="content-body">
+    <div class="container-fluid">	
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Thêm mới Phần mềm</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="basic-form">
+                            <form action="index.php?act=addpm" method="post" enctype="multipart/form-data">
+                                <div class="mb-3 row">
+                                    <label class="col-sm-2 col-form-label col-form-label-lg">Tên phần mềm</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="ten_phanmem">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-sm-2 col-form-label col-form-label-lg">Img</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group mb-3">
+                                            <div class="form-file">
+                                                <input type="file" class="form-file-input form-control" name="img">
+                                            </div>
+											<span class="input-group-text">Upload</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-sm-2 col-form-label col-form-label-lg">Price</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="price">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-sm-2 col-form-label col-form-label-lg">Link</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="link">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-sm-2 col-form-label col-form-label-lg">Des</label>
+                                    <div class="col-sm-10">
+                                        <textarea name="des" id="" cols="115" rows="10" ></textarea>
+                                    </div>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <label class="col-sm-2 col-form-label col-form-label-lg">Danh mục</label>
+                                        <select class="default-select form-control wide" name="id_danhmuc">
+                                            <option selected="">Chọn danh mục</option>
+                                            <?php
+                                                foreach($listdanhmuc as $danhmuc){
+                                                    extract($danhmuc);
+                                            ?>
+                                                <option value="<?php echo $id_danhmuc ?>"><?php echo $ten_danhmuc?></option>
+                                            <?php
+                                                }
+                                            ?>
+                                            
+                                        </select>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <input type="submit" name="themmoi" id="" value="Thêm mới"  class="btn btn-primary" >
+                                        <input type="reset" name="" id="" value="Nhập lại"  class="btn btn-primary" >
+                                        <a href="index.php?act=lispm"><input type="button" value="Danh sách"  class="btn btn-primary"></a>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                <p><?php
+                                    if(isset($thongbao)&&($thongbao!="")){
+                                        echo $thongbao;
+                                    }
+
+                                ?></p>
+                                </div>
+                            </form>
+                        </div>    
+                    </div>
+                </div>   
+            </div>
+        </div>
+    </div>
+</div>
