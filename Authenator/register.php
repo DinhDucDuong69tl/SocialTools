@@ -1,3 +1,40 @@
+<?php
+
+if(isset($_POST['dangky'])&&($_POST['dangky'])) { 
+    $error = [];
+    if(empty($_POST['user'])){
+        $error['user'] = "Bạn cần nhập tên user";
+    }else{
+        $user=$_POST['user'];
+    }
+    
+    if(empty($_POST['pass'])){
+        $error['pass'] = "Bạn cần nhập mật khẩu";
+    }else{
+        $pass=$_POST['pass'];
+    }
+
+    if(empty($_POST['email'])){
+        $error['email'] = "Bạn cần nhập email";
+    }else{
+        $email=$_POST['email'];
+    }
+
+
+
+if(!empty($error)){
+
+}else{
+    $sql = "INSERT INTO `user` (`user`, `pass`, `email`) VALUES ('{$user}', '{$pass} ', '{$email}')";
+    pdo_execute($sql);
+    $thongbao = "Đã đăng ký thành công. Vui lòng đăng nhập để thực hiện chức năng bình luận hoặc đặt hàng";
+}
+
+
+
+}    
+
+?>
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 
