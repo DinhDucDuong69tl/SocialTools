@@ -9,6 +9,21 @@
                     <div class="card-body">
                         <div class="basic-form">
                             <form action="index.php?act=addpm" method="post" enctype="multipart/form-data">
+                                <div class="input-group mb-3">
+                                        <label class="col-sm-2 col-form-label col-form-label-lg">Danh mục</label>
+                                            <select class="default-select form-control wide" name="id_danhmuc">
+                                                <option selected="">Chọn danh mục</option>
+                                                <?php
+                                                    foreach($listdanhmuc as $danhmuc){
+                                                        extract($danhmuc);
+                                                ?>
+                                                    <option value="<?php echo $id_danhmuc ?>"><?php echo $ten_danhmuc?></option>
+                                                <?php
+                                                    }
+                                                ?>
+                                                
+                                            </select>
+                                </div>
                                 <div class="mb-3 row">
                                     <label class="col-sm-2 col-form-label col-form-label-lg">Tên phần mềm</label>
                                     <div class="col-sm-10">
@@ -24,7 +39,6 @@
                                             </div>
 											<span class="input-group-text">Upload</span>
                                         </div>
-
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
@@ -45,21 +59,7 @@
                                         <textarea name="des" id="" cols="115" rows="10" ></textarea>
                                     </div>
                                 </div>
-                                <div class="input-group mb-3">
-                                    <label class="col-sm-2 col-form-label col-form-label-lg">Danh mục</label>
-                                        <select class="default-select form-control wide" name="id_danhmuc">
-                                            <option selected="">Chọn danh mục</option>
-                                            <?php
-                                                foreach($listdanhmuc as $danhmuc){
-                                                    extract($danhmuc);
-                                            ?>
-                                                <option value="<?php echo $id_danhmuc ?>"><?php echo $ten_danhmuc?></option>
-                                            <?php
-                                                }
-                                            ?>
-                                            
-                                        </select>
-                                </div>
+                               
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <input type="submit" name="themmoi" id="" value="Thêm mới"  class="btn btn-primary" >

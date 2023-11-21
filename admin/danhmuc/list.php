@@ -14,6 +14,7 @@
                                             <tr>
                                                 <th><strong>Mã loại</strong></th>
                                                 <th><strong>Tên danh mục</strong></th>
+                                                <th><strong>Img danh mục</strong></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -27,6 +28,7 @@
                                             <tr>
                                                 <td><strong><?php echo $id_danhmuc?></strong></td>
                                                 <td><?php echo $ten_danhmuc?></td>
+                                                <td><img src="<?php echo $img?>" alt="" class="me-3 rounded" width="150" height="150"></td>
                                                 <td>
 													<div class="d-flex">
 														<a href="index.php?act=suadm&id_danhmuc=<?php echo $id_danhmuc ?>" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>

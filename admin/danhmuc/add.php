@@ -8,11 +8,22 @@
                     </div>
                     <div class="card-body">
                         <div class="basic-form">
-                            <form action="index.php?act=adddm" method="post">
+                            <form action="index.php?act=adddm" method="post" enctype="multipart/form-data">
                                 <div class="mb-3 row">
                                     <label class="col-sm-2 col-form-label col-form-label-lg">Tên danh mục</label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" name="ten_danhmuc">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-sm-2 col-form-label col-form-label-lg">Img</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group mb-3">
+                                            <div class="form-file">
+                                                <input type="file" class="form-file-input form-control" name="img">
+                                            </div>
+											<span class="input-group-text">Upload</span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">
