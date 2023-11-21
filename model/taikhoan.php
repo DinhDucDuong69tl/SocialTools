@@ -8,4 +8,5 @@ function loadall_taikhoan() {
     $listtaikhoan= pdo_query($sql);
     return $listtaikhoan;
 }
+
 ?>

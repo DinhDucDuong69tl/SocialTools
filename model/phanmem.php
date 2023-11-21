@@ -10,8 +10,24 @@
         return $listphanmem;
     }
 
-    function load_phanmem_tuongtu($id_phanmem){
-        $sql = "SELECT * FROM `phanmem` WHERE `id_phanmem` <> {$id_phanmem} ";
+    function load_phanmem_tuongtu($id_phanmem,$id_danhmuc){
+        $sql = "SELECT * FROM `phanmem` WHERE `id_danhmuc`={$id_danhmuc} AND `id_phanmem` <> {$id_phanmem} ";
+        $listphanmem = pdo_query($sql);
+        return $listphanmem;
+    }
+
+    // function load_phanmem_tuongtu($id_danhmuc,$id_phanmem){
+    //     $sql = "SELECT * FROM `phanmem`
+    //     JOIN `danhmuc` ON phanmem.id_danhmuc = danhmuc.id_danhmuc
+    //     where phanmem.id_danhmuc = {$id_danhmuc} and `id_phanmem` <> {$id_phanmem} ";
+    //     $listphanmem = pdo_query($sql);
+    //     return $listphanmem;
+    // }
+
+    function load_phanmem_cungdanhmuc($id_danhmuc){
+        $sql = "SELECT * FROM `phanmem`
+        JOIN `danhmuc` ON phanmem.id_danhmuc = danhmuc.id_danhmuc
+        where phanmem.id_danhmuc = {$id_danhmuc}";
         $listphanmem = pdo_query($sql);
         return $listphanmem;
     }

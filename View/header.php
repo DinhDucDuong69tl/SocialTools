@@ -1,7 +1,8 @@
 <?php
 	session_start();
 	require "../model/function.php";
-	showArr($_SESSION);
+	// showArr($_SESSION['user']);
+	extract($_SESSION['user']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -598,8 +599,8 @@
 						<a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
 							<img src="../images/profile/pic1.jpg" width="20" alt="">
 							<div class="header-info ms-3">
-								<span class="font-w600 ">Hi,<b>William</b></span>
-								<small class="text-end font-w400">william@gmail.com</small>
+								<span class="font-w600 ">Hi, <b><?php echo $ten_user ?></b></span>
+								<small class="text-end font-w400">Money: <?php echo $money ?> VND</small>
 							</div>
 						</a>
 						<div class="dropdown-menu dropdown-menu-end">
@@ -636,12 +637,15 @@
 							<i class="flaticon-043-menu"></i>
 							<span class="nav-text">Bill</span>
 						</a>
-                    </li>		
-					<li><a class="" href="index.php?act=NapTien" >
-							<i class="flaticon-043-menu"></i>
-							<span class="nav-text">Nạp Tiền</span>
-						</a>
-                    </li>		
+                    </li>
+					<?php if($_SESSION['user']['role']==1){?>							
+                            <li><a href="../admin/index.php">
+								<i class="fas fa-user-check"></i>
+								<span class="nav-text">Quản trị Admin</span>
+							</a></li>
+                    <?php } ?>
+		
+	
                 </ul>
 				
 			</div>

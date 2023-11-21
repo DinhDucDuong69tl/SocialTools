@@ -1,6 +1,6 @@
 <?php
-    function insert_danhmuc($ten_danhmuc){
-        $sql = "INSERT INTO `danhmuc` ( `ten_danhmuc`) VALUES ('$ten_danhmuc')";
+    function insert_danhmuc($ten_danhmuc,$img){
+        $sql = "INSERT INTO `danhmuc` ( `ten_danhmuc`, `img`) VALUES ('{$ten_danhmuc}', '{$img}')";
         pdo_execute($sql);
     }    
     
@@ -32,10 +32,15 @@
         return $dm;
     }
 
-    function update_danhmuc($id_danhmuc,$ten_danhmuc) {
-        $sql = "UPDATE `danhmuc` SET `ten_danhmuc` = '{$ten_danhmuc}' WHERE `id_danhmuc` = {$id_danhmuc}";
+    function update_danhmuc($id_danhmuc,$ten_danhmuc, $img){
+        if($img!=""){
+            $sql = "UPDATE `danhmuc` SET `ten_danhmuc` = '{$ten_danhmuc}', `img` = '{$img}' WHERE `id_danhmuc` = {$id_danhmuc}";
+        }else{
+            $sql = "UPDATE `danhmuc` SET `ten_danhmuc` = '{$ten_danhmuc}' WHERE `id_danhmuc` = {$id_danhmuc}";
+        }        
         pdo_execute($sql);
     }
+
     
 ?>
 
