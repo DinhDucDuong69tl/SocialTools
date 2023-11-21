@@ -16,25 +16,33 @@
                     $onephanmem = loadone_phanmem($_GET['id_phanmem']); 
                     extract($onephanmem);
 
-                    $listphanmem = load_phanmem_tuongtu($_GET['id_phanmem']);
+                    $listphanmem = load_phanmem_tuongtu($_GET['id_phanmem'],$id_danhmuc);
                     require "ctphanmem.php";
+                }else{
+                    require "home.php";
+                }                       
+                break;
+            case 'ctdanhmuc':                 
+                if(isset($_GET['id_danhmuc'])&&($_GET['id_danhmuc']>0)) {                    
+                    $listphanmem = load_phanmem_cungdanhmuc($_GET['id_danhmuc']);
+                    require "ctdanhmuc.php";
                 }else{
                     require "home.php";
                 }                       
                 break;
             case 'bill':
                     // $ngaydathang =date('h:i:sa  d/m/Y');
-                    $listbillUser = load_bill_user(1) ;   
+                    $listbillUser = load_bill_user( $_SESSION['user']['id_user']) ;   
                     require "bill.php";                    
                 break;
-                case 'naptien':
-                    // $ngaydathang =date('h:i:sa  d/m/Y');
-                    $listbillUser = load_bill_user(1) ;   
-                    require "naptien.php";                    
+            case 'naptien':
+                // // $ngaydathang =date('h:i:sa  d/m/Y');
+                // $listbillUser = load_bill_user(1) ;   
+                require "naptien.php";                    
                 break;
-                case 'logout':
-                    session_unset();
-                    header('location: '); 
+            case 'logout':
+                session_unset();
+                // header("Location: ../index.html");
                 break;
             default:
                 require "home.php";
