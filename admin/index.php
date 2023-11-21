@@ -14,7 +14,18 @@
             case 'adddm':
                 if(isset($_POST['themmoi'])&&($_POST['themmoi'])){
                     $ten_danhmuc= $_POST['ten_danhmuc'];
-                    insert_danhmuc($ten_danhmuc);
+
+                    $dir = "../upload/danhmuc/";
+                    $filename = basename($_FILES['img']['name']);
+                    $fileimg = $dir.$filename;
+                    if(move_uploaded_file($_FILES['img']['tmp_name'],$fileimg)){
+                        $_POST['img'] = $fileimg;
+                        $img = $_POST['img'];
+                    }else{
+                        echo "up load thất bại";
+                    }
+
+                    insert_danhmuc($ten_danhmuc,$img);
                     $thongbao = "Thêm thành công";
                 }
                 include "danhmuc/add.php";
@@ -40,7 +51,17 @@
                 if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
                     $ten_danhmuc = $_POST['ten_danhmuc'];
                     $id_danhmuc = $_POST['id_danhmuc'];
-                    update_danhmuc($id_danhmuc,$ten_danhmuc);
+
+                    $dir = "../upload/danhmuc/";
+                    $filename = basename($_FILES['img']['name']);
+                    $fileimg = $dir.$filename;
+                    if(move_uploaded_file($_FILES['img']['tmp_name'],$fileimg)){
+                        $_POST['img'] = $fileimg;
+                        $img_danhmuc = $_POST['img'];
+                    }else{
+                        echo "up load thất bại";
+                    }
+                    update_danhmuc($id_danhmuc,$ten_danhmuc,$img_danhmuc);
                     $thongbao = "Cập nhật thành công";
                 }
                 $listdanhmuc=loadall_danhmuc();
@@ -57,7 +78,7 @@
                     $link = $_POST['link'];
                     $des = $_POST['des'];
                     
-                    $dir = "../upload/";
+                    $dir = "../upload/phanmem/";
                     $filename = basename($_FILES['img']['name']);
                     $fileimg = $dir.$filename;
                     if(move_uploaded_file($_FILES['img']['tmp_name'],$fileimg)){
@@ -107,7 +128,7 @@
                     $link = $_POST['link'];
                     $des = $_POST['des'];
                     
-                    $dir = "../upload/";
+                    $dir = "../upload/phanmem/";
                     $filename = basename($_FILES['img']['name']);
                     $fileimg = $dir.$filename;
                     if(move_uploaded_file($_FILES['img']['tmp_name'],$fileimg)){
@@ -129,7 +150,10 @@
                 $listtaikhoan=loadall_taikhoan();     
                 include "taikhoan/list.php"; 
                 break;
-
+            case 'naptienuser':
+                $listtaikhoan=loadall_taikhoan();    
+                include "taikhoan/naptien.php";
+                break;
             // //binhluan
             // case 'dsbl':                   
             //     $listbinhluan=loadall_binhluan(0);     

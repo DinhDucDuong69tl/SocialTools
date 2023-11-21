@@ -608,7 +608,7 @@
 							</a>
 						</div>
 					</li>
-					<li><a class="" href="index.php" >
+					<li><a class="" href="../View/index.php" >
 							<i class="flaticon-025-dashboard"></i>
 							<span class="nav-text">Trang Chủ</span>
 						</a>
@@ -641,7 +641,12 @@
 							<i class="flaticon-022-copy"></i>
 							<span class="nav-text">Tài Khoản</span>
 						</a>
-                    </li>		
+                    </li>	
+					<li><a class="" href="index.php?act=naptienuser" >
+							<i class="fas fa-table"></i>
+							<span class="nav-text">Nạp tiền cho User</span>
+						</a>
+                    </li>	
 					<li><a class="" href="#">
 							<i class="flaticon-072-printer"></i>
 							<span class="nav-text">Thống kê</span>

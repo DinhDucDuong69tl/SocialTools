@@ -2,6 +2,14 @@
     if(is_array($dm)){
         extract($dm);
     }
+
+    
+    // $hinhpath="../upload/danhmuc/".$img;
+    // if(is_file($hinhpath)){
+    //     $img = " <img src='".$hinhpath."' heigth='50px'; width='50px' >";
+    // }else{
+    //     $img = "no photo";
+    // }
 ?>
 
 <div class="content-body">
@@ -14,11 +22,23 @@
                     </div>
                     <div class="card-body">
                         <div class="basic-form">
-                            <form action="index.php?act=updatedm" method="post">
+                            <form action="index.php?act=updatedm" method="post"  enctype="multipart/form-data">
                                 <div class="mb-3 row">
                                     <label class="col-sm-2 col-form-label col-form-label-lg">Tên danh mục</label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" name="ten_danhmuc" value=" <?php if(isset($ten_danhmuc)&&($ten_danhmuc!="")) echo $ten_danhmuc?>">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label class="col-sm-2 col-form-label col-form-label-lg">Img</label>
+                                    <div class="col-sm-10">
+                                        <div class="input-group mb-3">
+                                            <div class="form-file">
+                                                <input type="file" class="form-file-input form-control" name="img">
+                                            </div>                                            
+											<span class="input-group-text">Upload</span>
+                                        </div>
+                                        <img src="<?php if(isset($img)&&($img!="")) echo $img?>" alt="" class="me-3 rounded" width="150" height="150">
                                     </div>
                                 </div>
                                 <div class="row">
