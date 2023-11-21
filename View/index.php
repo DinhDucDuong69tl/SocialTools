@@ -27,9 +27,14 @@
                     $listbillUser = load_bill_user(1) ;   
                     require "bill.php";                    
                 break;
+                case 'naptien':
+                    // $ngaydathang =date('h:i:sa  d/m/Y');
+                    $listbillUser = load_bill_user(1) ;   
+                    require "naptien.php";                    
+                break;
                 case 'logout':
                     session_unset();
-                    header('location: index.php'); 
+                    header('location: '); 
                 break;
             default:
                 require "home.php";
