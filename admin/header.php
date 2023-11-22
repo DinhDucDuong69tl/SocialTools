@@ -593,8 +593,8 @@
 						<a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
 							<img src="../images/profile/pic1.jpg" width="20" alt="">
 							<div class="header-info ms-3">
-								<span class="font-w600 ">Hi,<b>William</b></span>
-								<small class="text-end font-w400">william@gmail.com</small>
+								<span class="font-w600 ">Hi,<b>Admin</b></span>
+								<small class="text-end font-w400">Quản trị web</small>
 							</div>
 						</a>
 						<div class="dropdown-menu dropdown-menu-end">
@@ -645,6 +645,11 @@
 					<li><a class="" href="index.php?act=naptienuser" >
 							<i class="fas fa-table"></i>
 							<span class="nav-text">Nạp tiền cho User</span>
+						</a>
+                    </li>	
+					<li><a class="" href="index.php?act=listnganhang" >
+							<i class="fas fa-clone"></i>
+							<span class="nav-text">Ngân hàng</span>
 						</a>
                     </li>	
 					<li><a class="" href="#">
