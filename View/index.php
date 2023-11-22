@@ -40,6 +40,10 @@
                 // $listbillUser = load_bill_user(1) ;   
                 require "naptien.php";                    
                 break;
+            case 'profile':
+ 
+                require "profile.php";                    
+                break;
             case 'logout':
                 session_unset();
                 // header("Location: ../index.html");
