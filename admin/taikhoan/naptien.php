@@ -1,3 +1,4 @@
+
 <div class="content-body">
     <div class="container-fluid">	
         <div class="row">
@@ -8,16 +9,15 @@
                     </div>
                     <div class="card-body">
                         <div class="basic-form">
-                            <form action="index.php?act=adddm" method="post" enctype="multipart/form-data">
+                            <form action="index.php?act=naptienuser" method="post" enctype="multipart/form-data">
                                 <div class="input-group mb-3">
                                         <label class="col-sm-2 col-form-label col-form-label-lg">User</label>
                                             <select class="default-select form-control wide" name="id_user">
-                                                <option selected="">User</option>
                                                 <?php
                                                     foreach($listtaikhoan as $user){
                                                         extract($user);
                                                 ?>
-                                                    <option value="<?php echo $id_user ?>"><?php echo $ten_user?></option>
+                                                    <option value="<?php echo $id_user ?>"><?php echo $id_user ?> - <?php echo $ten_user?> - <?php echo $money?></option>
                                                 <?php
                                                     }
                                                 ?>
@@ -34,7 +34,7 @@
                                     <div class="col-lg-12">
                                         <input type="submit" name="naptien" id="" value="Nạp tiền"  class="btn btn-primary" >
                                         <input type="reset" name="" id="" value="Nhập lại"  class="btn btn-primary" >
-                                        <a href="index.php?act=lisdm"><input type="button" value="Danh sách"  class="btn btn-primary"></a>
+                                        <a href="index.php?act=dsuser"><input type="button" value="Danh sách"  class="btn btn-primary"></a>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -44,6 +44,15 @@
                                     }
 
                                 ?></p>
+                                <?php
+    // $one_user = load_one_user(1);
+    // if(is_array($one_user)){
+    //     extract($one_user);
+    //     echo $money;
+    //     $total = 10000 + $money;
+    //     echo $total;
+    // }
+?>
                                 </div>
                             </form>
                         </div>    

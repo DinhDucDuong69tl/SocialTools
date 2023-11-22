@@ -638,6 +638,7 @@
 							<span class="nav-text">Bill</span>
 						</a>
                     </li>
+					
 					<?php if($_SESSION['user']['role']==1){?>							
                             <li><a href="../admin/index.php">
 								<i class="fas fa-user-check"></i>

@@ -4,7 +4,8 @@
     require "../model/phanmem.php";
     require "../model/taikhoan.php";
     require "../model/bill.php";
-    
+    require "../model/nganhang.php";
+    require "../model/function.php";
   
     require "header.php";
 
@@ -151,9 +152,64 @@
                 include "taikhoan/list.php"; 
                 break;
             case 'naptienuser':
+                if(isset($_POST['naptien'])&&($_POST['naptien'])){
+                    $id_user = $_POST['id_user'];
+                    $money_nap = $_POST['money'];
+                    $one_user = load_one_user($id_user);
+                    if(is_array($one_user)){
+                        extract($one_user);
+                        // echo $money;
+                        $total = $money + $money_nap;
+                    }
+                    
+                    update_money($id_user,$total);
+                    $thongbao = "Nạp thành công";
+                }
                 $listtaikhoan=loadall_taikhoan();    
                 include "taikhoan/naptien.php";
                 break;
+
+            //nganhang
+            case 'listnganhang':
+                $listnganhang = loadall_nganhang();
+                include "nganhang/list.php"; 
+                break;
+            case 'addnh':
+                if(isset($_POST['themmoi'])&&($_POST['themmoi'])){
+                    $ten_nganhang= $_POST['ten_nganhang'];
+                    $taikhoan_nganhang = $_POST['taikhoan_nganhang'];
+
+                    insert_nganhang($ten_nganhang,$taikhoan_nganhang);
+                    $thongbao = "Thêm thành công";
+                }
+                include "nganhang/add.php";
+                break;
+            case 'xoanh':
+                if(isset($_GET['id_nganhang'])&&($_GET['id_nganhang']>0)){
+                    delete_nganhang($_GET['id_nganhang']);
+                }
+                $listnganhang=loadall_nganhang();
+                include "nganhang/list.php"; 
+                break;
+            case 'suanh':
+                if(isset($_GET['id_nganhang'])&&($_GET['id_nganhang']>0)){
+                    $nganhang=loadone_nganhang($_GET['id_nganhang']);
+                }               
+                include "nganhang/update.php"; 
+                break;
+            case 'updatenh':
+                if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
+                    $ten_nganhang = $_POST['ten_nganhang'];
+                    $taikhoan_nganhang = $_POST['taikhoan_nganhang'];
+                    $id_nganhang = $_POST['id_nganhang'];
+
+                    update_nganhang($id_nganhang,$ten_nganhang,$taikhoan_nganhang);
+                    $thongbao = "Cập nhật thành công";
+                }
+                $listnganhang=loadall_nganhang();
+                include "nganhang/list.php"; 
+                break;
+
             // //binhluan
             // case 'dsbl':                   
             //     $listbinhluan=loadall_binhluan(0);     
