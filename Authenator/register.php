@@ -1,4 +1,5 @@
 <?php
+require "../model/pdo.php";
 
 if(isset($_POST['dangky'])&&($_POST['dangky'])) { 
     $error = [];
@@ -25,7 +26,7 @@ if(isset($_POST['dangky'])&&($_POST['dangky'])) {
 if(!empty($error)){
 
 }else{
-    $sql = "INSERT INTO `user` (`user`, `pass`, `email`) VALUES ('{$user}', '{$pass} ', '{$email}')";
+    $sql = "INSERT INTO `user` (`ten_user`, `pass`, `email`) VALUES ('{$user}', '{$pass} ', '{$email}')";
     pdo_execute($sql);
     $thongbao = "Đã đăng ký thành công. Vui lòng đăng nhập để thực hiện chức năng bình luận hoặc đặt hàng";
 }
@@ -66,21 +67,27 @@ if(!empty($error)){
 										<a href="index.html"><img src="../img/logo-full.png" alt=""></a>
 									</div>
                                     <h4 class="text-center mb-4">Sign up your account</h4>
-                                    <form action="index.html">
+                                    <form action="" method="post">
                                         <div class="mb-3">
                                             <label class="mb-1"><strong>Username</strong></label>
-                                            <input type="text" class="form-control" placeholder="Enter Your Username">
-                                        </div>
-                                        <div class="mb-3">
-                                            <label class="mb-1"><strong>Email</strong></label>
-                                            <input type="email" class="form-control" placeholder="Enter Your Email">
+                                            <input type="text" class="form-control" placeholder="Enter Your Username" name="user"  value="<?php if(isset($user)) echo $user?>">
+                                            <span><?php if(isset($error['user'])) echo $error['user']?></span>
+
                                         </div>
                                         <div class="mb-3">
                                             <label class="mb-1"><strong>Password</strong></label>
-                                            <input type="password" class="form-control" placeholder="Enter Your Password">
+                                            <input type="password" class="form-control" placeholder="Enter Your Password" name="pass"  value="<?php if(isset($pass)) echo $pass?>">
+                                            <span><?php if(isset($error['pass'])) echo $error['pass']?></span>
+
                                         </div>
+                                        <div class="mb-3">
+                                            <label class="mb-1"><strong>Email</strong></label>
+                                            <input type="email" class="form-control" placeholder="Enter Your Email" name="email"  value="<?php if(isset($email)) echo $email?>">
+                                            <span><?php if(isset($error['email'])) echo $error['email']?></span>
+
+                                        </div>                                         
                                         <div class="text-center mt-4">
-                                            <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+                                            <button type="submit" name="dangky" id="" value="Đăng ký" class="btn btn-primary btn-block">Sign up</button>
                                         </div>
                                     </form>
                                     <div class="new-account mt-3">
