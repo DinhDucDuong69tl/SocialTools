@@ -3,6 +3,18 @@
 	require "../model/function.php";
 	// showArr($_SESSION['user']);
 	extract($_SESSION['user']);
+	$one_user = load_one_user($id_user);
+    if(is_array($one_user)){
+        extract($one_user);
+    }
+	if($_SESSION['user']['money']!=$one_user['money']){
+		$_SESSION['user']['money'] = $one_user['money'];
+		if(($_SESSION['user']['money']<$one_user['money'])){
+			$money_nap = $one_user['money'] - $_SESSION['user']['money'];
+		}else if($_SESSION['user']['money']==$one_user['money']){
+			$money_nap = "";
+		}
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">

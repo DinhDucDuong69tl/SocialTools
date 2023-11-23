@@ -3,6 +3,8 @@
     require "../model/danhmuc.php";
     require "../model/phanmem.php";
     require "../model/bill.php";
+    require "../model/taikhoan.php";
+    require "../model/nganhang.php";
     require "header.php";
 
     $listphanmem = loadall_phanmem();
@@ -41,7 +43,7 @@
                 require "naptien.php";                    
                 break;
             case 'profile':
- 
+                
                 require "profile.php";                    
                 break;
             case 'logout':
