@@ -42,13 +42,10 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>+100000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>+100000</td>
-                                            </tr>
-                                            
+                                                <tr>
+                                                    <td><?php echo "+".$money_nap?></td>
+                                                </tr>  
+                                      
                                         </tbody>
                                        
                                     </table>
