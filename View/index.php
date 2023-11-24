@@ -5,11 +5,13 @@
     require "../model/bill.php";
     require "../model/taikhoan.php";
     require "../model/nganhang.php";
+    if(isset($_SESSION['user'])){
     require "header.php";
 
     $listphanmem = loadall_phanmem();
     $listdanhmuc = loadall_danhmuc();
     
+        
     if(isset($_GET['act'])&&($_GET['act'])!=""){
         $act = $_GET['act'];
         switch($act){
@@ -32,8 +34,27 @@
                     require "home.php";
                 }                       
                 break;
+            case 'muangay':
+                if(isset($_POST['muangay'])&&($_POST['muangay'])){
+                    if(isset($_SESSION['user'])){
+                        $iduser =  $_SESSION['user']['id_nguoidung'];
+                    }else{
+                        $id = 0;
+                    }
+
+                    $id_phanmem = $_POST['id_phanmem'];
+                    $price = $_POST['price'];
+                    if( $_SESSION['user']['money'] >= $price)
+                    $money_user =  $_SESSION['user']['money'] - $price;
+                    $_SESSION['user']['money'] = $money_user;
+                    $date =date('h:i:sa  d/m/Y');
+                
+                    $id_bill = insert_bill($id_phanmem, $id_user, $date);
+                    
+                    $_SESSION['cart'] = "";
+                }
+                break;
             case 'bill':
-                    // $ngaydathang =date('h:i:sa  d/m/Y');
                     $listbillUser = load_bill_user( $_SESSION['user']['id_user']) ;   
                     require "bill.php";                    
                 break;
@@ -42,14 +63,13 @@
                 // $listbillUser = load_bill_user(1) ;   
                 require "naptien.php";                    
                 break;
-            case 'profile':
-                
+            case 'profile':                
                 require "profile.php";                    
                 break;
-            case 'logout':
-                session_unset();
-                // header("Location: ../index.html");
-                break;
+            // case 'logout':
+            //     session_unset();
+            //     // header("Location: ../index.html");
+            //     break;
             default:
                 require "home.php";
                 break;
@@ -61,4 +81,7 @@
 
 
     require "footer.php";
+} else {
+    header('Location: ../Error/404.php');
+}
 ?>
