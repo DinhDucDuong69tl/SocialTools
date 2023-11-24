@@ -66,7 +66,9 @@
                 // $listbillUser = load_bill_user(1) ;   
                 require "naptien.php";                    
                 break;
-            case 'profile':                
+            case 'profile':         
+                $id_user = $_SESSION['user']['id_user'];
+                $listlsnap = loadall_ls_nap($id_user);
                 require "profile.php";                    
                 break;
             // case 'logout':

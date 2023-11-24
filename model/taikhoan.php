@@ -17,7 +17,18 @@ function load_one_user($id_user) {
 }
 
 function update_money($id_user,$money){
-    $sql = "UPDATE `user` SET `money` = '{$money}' WHERE `user`.`id_user` = {$id_user}";
+    $sql = "UPDATE `user` SET `money` = '{$money}', `total_money` = '{$money}' WHERE `user`.`id_user` = {$id_user}";
     pdo_execute($sql);
+}
+
+function insert_history_money($id_user,$des){
+    $sql = "INSERT INTO `history_nap` (`id_user`, `des_nap`) VALUES ('$id_user', '$des')";
+    pdo_execute($sql);
+}
+
+function loadall_ls_nap($id_user) {
+    $sql = "select * from `history_nap` WHERE `id_user` = '{$id_user}'";
+    $listlsnap= pdo_query($sql);
+    return $listlsnap;
 }
 ?>
