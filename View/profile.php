@@ -42,9 +42,16 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php foreach($listlsnap as $lsnap){
+                                                extract($lsnap);
+                                                ?>
                                                 <tr>
-                                                    <td><?php echo "+".$money_nap?></td>
+
+                                                    <td><?php echo $des_nap?></td>
                                                 </tr>  
+                                                <?php
+                                            }
+                                                ?>
                                       
                                         </tbody>
                                        
