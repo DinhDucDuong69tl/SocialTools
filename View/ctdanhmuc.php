@@ -24,7 +24,11 @@
 											<b><h5 class="card-title"><?php echo $ten_phanmem ?></h5></b>
 											<!-- <p class="card-text">This is a wider card with supporting text and below as a natural lead-in to the additional content. This content is a little <br> bit longer. Some quick example text to build the bulk</p> -->
 											<p class=""><b class="text-dark">Giá : </b> <?php echo $price ?> <b class="text-success">VND</b></p>
-											<a href="javascript:void(0);" class="btn btn-primary">Mua Ngay</a>
+											<form action="index.php?act=muangay" method="post">
+												<input type="hidden" name="id_phanmem" value="<?php echo $id_phanmem ?>">
+												<input type="hidden" name="price" value="<?php echo $price ?>">
+												<input type="submit" value="Mua ngay" name="muangay" class="btn btn-primary">
+											</form>
 											</div>
 										</a>
 									</div>
