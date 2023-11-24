@@ -5,7 +5,10 @@
     require "../model/bill.php";
     require "../model/taikhoan.php";
     require "../model/nganhang.php";
-    if(isset($_SESSION['user'])){
+    require "../model/function.php";
+
+    session_start();
+    if(isset($_SESSION['user']['ten_user'])){
     require "header.php";
 
     $listphanmem = loadall_phanmem();

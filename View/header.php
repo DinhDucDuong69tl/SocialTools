@@ -1,6 +1,5 @@
 <?php
-	session_start();
-	require "../model/function.php";
+
 	// showArr($_SESSION['user']);
 	extract($_SESSION['user']);
 	$one_user = load_one_user($id_user);
