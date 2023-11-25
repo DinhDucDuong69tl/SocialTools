@@ -8,11 +8,6 @@
     }
 	if($_SESSION['user']['money']!=$one_user['money']){
 		$_SESSION['user']['money'] = $one_user['money'];
-		if(($_SESSION['user']['money']<$one_user['money'])){
-			$money_nap = $one_user['money'] - $_SESSION['user']['money'];
-		}else if($_SESSION['user']['money']==$one_user['money']){
-			$money_nap = "";
-		}
 	}
 ?>
 <!DOCTYPE html>

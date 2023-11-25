@@ -19,14 +19,16 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php foreach($listbillUser as $bill){
+                                            <?php
+                                            $stt = 1; 
+                                            foreach($listbillUser as $bill){
                                                 extract($bill);
                                                 // echo "<pre>";
                                                 // print_r($bill);
                                                 // echo "</pre>";
                                             ?>
                                             <tr>
-                                                <td><strong><?php echo $id_bill?></strong></td>
+                                                <td><strong><?php echo $stt?></strong></td>
                                                 <td><?php echo $ten_phanmem?></td>
                                                 <td><?php echo $price?></td>
                                                 <td><?php echo $date?></td>
@@ -34,6 +36,7 @@
 											
                                             </tr>
                                             <?php
+                                            $stt++;
                                             }
                                             ?>                                           
                                         </tbody>
