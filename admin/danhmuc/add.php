@@ -13,7 +13,9 @@
                                     <label class="col-sm-2 col-form-label col-form-label-lg">Tên danh mục</label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" name="ten_danhmuc">
+                                        <span><?php if(isset($error['ten_danhmuc'])) echo $error['ten_danhmuc']?></span>
                                     </div>
+                                    
                                 </div>
                                 <div class="mb-3 row">
                                     <label class="col-sm-2 col-form-label col-form-label-lg">Img</label>
@@ -24,6 +26,8 @@
                                             </div>
 											<span class="input-group-text">Upload</span>
                                         </div>
+                                        <span><?php if(isset($error['img'])) echo $error['img']?></span>
+
                                     </div>
                                 </div>
                                 <div class="row">
