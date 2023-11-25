@@ -14,7 +14,12 @@
         switch($act){
             case 'adddm':
                 if(isset($_POST['themmoi'])&&($_POST['themmoi'])){
-                    $ten_danhmuc= $_POST['ten_danhmuc'];
+                    $error = [];                 
+                    if(empty($_POST['ten_danhmuc'])){
+                        $error['ten_danhmuc'] = "Bạn cần nhập tên danh mục";
+                    }else{
+                        $ten_danhmuc= $_POST['ten_danhmuc'];
+                    }
 
                     $dir = "../upload/danhmuc/";
                     $filename = basename($_FILES['img']['name']);
@@ -23,11 +28,17 @@
                         $_POST['img'] = $fileimg;
                         $img = $_POST['img'];
                     }else{
-                        echo "up load thất bại";
+                        $error['img'] = "Bạn cần thêm ảnh danh mục";
                     }
 
-                    insert_danhmuc($ten_danhmuc,$img);
-                    $thongbao = "Thêm thành công";
+                    if(!empty($error)){
+
+                    }else{
+                        insert_danhmuc($ten_danhmuc,$img);
+                        $thongbao = "Thêm thành công";
+                    }
+                   
+                    
                 }
                 include "danhmuc/add.php";
                 break;
@@ -58,12 +69,12 @@
                     $fileimg = $dir.$filename;
                     if(move_uploaded_file($_FILES['img']['tmp_name'],$fileimg)){
                         $_POST['img'] = $fileimg;
-                        $img_danhmuc = $_POST['img'];
+                        $img = $_POST['img'];
                     }else{
                         echo "up load thất bại";
                     }
                     update_danhmuc($id_danhmuc,$ten_danhmuc,$img_danhmuc);
-                    $thongbao = "Cập nhật thành công";
+                    $thongbao = "Cập nhật thành công";                  
                 }
                 $listdanhmuc=loadall_danhmuc();
                 include "danhmuc/list.php"; 
@@ -73,11 +84,36 @@
             // //sản phẩm
             case 'addpm':
                 if(isset($_POST['themmoi'])&&($_POST['themmoi'])){
-                    $id_danhmuc=$_POST['id_danhmuc'];
-                    $ten_phanmem = $_POST['ten_phanmem'];
-                    $price = $_POST['price'];
-                    $link = $_POST['link'];
-                    $des = $_POST['des'];
+                    $error = [];                 
+                    if(empty($_POST['id_danhmuc'])){
+                        $error['id_danhmuc'] = "Bạn cần chọn danh mục";
+                    }else{
+                        $id_danhmuc= $_POST['id_danhmuc'];
+                    }
+
+                    if(empty($_POST['ten_phanmem'])){
+                        $error['ten_phanmem'] = "Bạn cần nhập tên phần mềm";
+                    }else{
+                        $ten_phanmem= $_POST['ten_phanmem'];
+                    }
+
+                    if(empty($_POST['price'])){
+                        $error['price'] = "Bạn cần nhập giá phần mềm";
+                    }else{
+                        $price= $_POST['price'];
+                    }
+
+                    if(empty($_POST['link'])){
+                        $error['link'] = "Bạn cần nhập link phần mềm";
+                    }else{
+                        $link= $_POST['link'];
+                    }
+
+                    if(empty($_POST['des'])){
+                        $error['des'] = "Bạn cần nhập des phần mềm";
+                    }else{
+                        $des= $_POST['des'];
+                    }
                     
                     $dir = "../upload/phanmem/";
                     $filename = basename($_FILES['img']['name']);
@@ -86,10 +122,15 @@
                         $_POST['img'] = $fileimg;
                         $img = $_POST['img'];
                     }else{
-                        echo "up load thất bại";
+                        $error['img'] = "Bạn cần thêm ảnh phần mềm";
                     }
-                    insert_phanmem($ten_phanmem,$img,$price,$link,$des,$id_danhmuc);
-                    $thongbao = "Thêm thành công";
+                    if(!empty($error)){
+
+                    }else{
+                        insert_phanmem($ten_phanmem,$img,$price,$link,$des,$id_danhmuc);
+                        $thongbao = "Thêm thành công";
+                    }
+                    
                 }
                 $listdanhmuc=loadall_danhmuc();
                 include "phanmem/add.php";
@@ -279,7 +320,6 @@
     }else{
         include "home.php";
     }
-
 
 
     require "footer.php";
