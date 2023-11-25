@@ -16,8 +16,12 @@ function load_one_user($id_user) {
     return $one_user;
 }
 
-function update_money($id_user,$money){
-    $sql = "UPDATE `user` SET `money` = '{$money}', `total_money` = '{$money}' WHERE `user`.`id_user` = {$id_user}";
+function update_money_nap($id_user,$money,$total_money){
+    $sql = "UPDATE `user` SET `money` = '{$money}', `total_money` = '{$total_money}' WHERE `user`.`id_user` = {$id_user}";
+    pdo_execute($sql);
+}
+function update_money_mua($id_user,$money){
+    $sql = "UPDATE `user` SET `money` = '{$money}' WHERE `user`.`id_user` = {$id_user}";
     pdo_execute($sql);
 }
 

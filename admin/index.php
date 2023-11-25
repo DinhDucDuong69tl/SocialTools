@@ -164,7 +164,7 @@
                     
                     $des = "Đã Nạp ".$money_nap." VND";
                     insert_history_money($id_user,$des);
-                    update_money($id_user,$total);
+                    update_money_nap($id_user,$total,$total);
                     $thongbao = "Nạp thành công";
                 }
                 $listtaikhoan=loadall_taikhoan();    

@@ -40,22 +40,30 @@
             case 'muangay':
                 if(isset($_POST['muangay'])&&($_POST['muangay'])){
                     if(isset($_SESSION['user'])){
-                        $iduser =  $_SESSION['user']['id_nguoidung'];
+                        $id_user =  $_SESSION['user']['id_user'];
                     }else{
-                        $id = 0;
+                        $id_user = 0;
                     }
 
                     $id_phanmem = $_POST['id_phanmem'];
                     $price = $_POST['price'];
-                    if( $_SESSION['user']['money'] >= $price)
-                    $money_user =  $_SESSION['user']['money'] - $price;
-                    $_SESSION['user']['money'] = $money_user;
-                    $date =date('h:i:sa  d/m/Y');
-                
-                    $id_bill = insert_bill($id_phanmem, $id_user, $date);
-                    
-                    $_SESSION['cart'] = "";
+                    if( $_SESSION['user']['money'] >= $price){
+                        $money_user =  $_SESSION['user']['money'] - $price;
+                        $_SESSION['user']['money'] = $money_user;
+                        $date =date('h:i:sa  d/m/Y');
+                        update_money_mua($id_user,$money_user);
+                        $id_bill = insert_bill($id_phanmem, $id_user, $date);
+                        
+                        $thongbao = "Mua thành công hãy xem bill";
+                        
+                    }else{
+                        $thongbao = "Bạn không đủ tiền để mua";
+
+                    }  
+                    require "muangay.php";                                                       
                 }
+                
+                // 
                 break;
             case 'bill':
                     $listbillUser = load_bill_user( $_SESSION['user']['id_user']) ;   
