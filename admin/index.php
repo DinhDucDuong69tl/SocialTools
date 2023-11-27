@@ -201,7 +201,7 @@
                         $id_user= $_POST['id_user'];
                     }
                     if(empty($_POST['money'])){
-                        $error['money'] = "Bạn cần nạp số tiền";
+                        $error['money'] = "Bạn cần nhập số tiền nạp";
                     }else{
                         $money_nap= $_POST['money'];
                     }
