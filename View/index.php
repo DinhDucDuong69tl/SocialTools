@@ -70,8 +70,7 @@
                     require "bill.php";                    
                 break;
             case 'naptien':
-                // // $ngaydathang =date('h:i:sa  d/m/Y');
-                // $listbillUser = load_bill_user(1) ;   
+                $nganhang = loadall_nganhang();
                 require "naptien.php";                    
                 break;
             case 'profile':         
