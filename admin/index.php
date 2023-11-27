@@ -201,23 +201,28 @@
                         $id_user= $_POST['id_user'];
                     }
                     if(empty($_POST['money'])){
-                        $error['money'] = "Bạn cần nạp số tiền";
+                        $error['money'] = "Bạn cần nhập số tiền nạp";
                     }else{
                         $money_nap= $_POST['money'];
                     }
 
-                    $money_nap = $_POST['money'];
-                    $one_user = load_one_user($id_user);
-                    if(is_array($one_user)){
-                        extract($one_user);
-                        // echo $money;
-                        $total = $money + $money_nap;
+                    if(!empty($error)){
+
+                    }else{
+                        $one_user = load_one_user($id_user);
+                        if(is_array($one_user)){
+                            extract($one_user);
+                            // echo $money;
+                            $total = $money + $money_nap;
+                        }
+                        
+                        $des = "Đã Nạp ".$money_nap." VND";
+                        insert_history_money($id_user,$des);
+                        update_money_nap($id_user,$total,$total);
+                        $thongbao = "Nạp thành công";
                     }
-                    
-                    $des = "Đã Nạp ".$money_nap." VND";
-                    insert_history_money($id_user,$des);
-                    update_money_nap($id_user,$total,$total);
-                    $thongbao = "Nạp thành công";
+
+                   
                 }
                 $listtaikhoan=loadall_taikhoan();    
                 include "taikhoan/naptien.php";
