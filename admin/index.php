@@ -194,7 +194,18 @@
                 break;
             case 'naptienuser':
                 if(isset($_POST['naptien'])&&($_POST['naptien'])){
-                    $id_user = $_POST['id_user'];
+                    $error = [];                 
+                    if(empty($_POST['id_user'])){
+                        $error['id_user'] = "Bạn cần chọn user";
+                    }else{
+                        $id_user= $_POST['id_user'];
+                    }
+                    if(empty($_POST['money'])){
+                        $error['money'] = "Bạn cần nạp số tiền";
+                    }else{
+                        $money_nap= $_POST['money'];
+                    }
+
                     $money_nap = $_POST['money'];
                     $one_user = load_one_user($id_user);
                     if(is_array($one_user)){
@@ -219,11 +230,24 @@
                 break;
             case 'addnh':
                 if(isset($_POST['themmoi'])&&($_POST['themmoi'])){
-                    $ten_nganhang= $_POST['ten_nganhang'];
-                    $taikhoan_nganhang = $_POST['taikhoan_nganhang'];
+                    $error = [];                 
+                    if(empty($_POST['ten_nganhang'])){
+                        $error['ten_nganhang'] = "Bạn cần nhập tên ngân hàng";
+                    }else{
+                        $ten_nganhang= $_POST['ten_nganhang'];
+                    }
+                    if(empty($_POST['taikhoan_nganhang'])){
+                        $error['taikhoan_nganhang'] = "Bạn cần nhập tài khoản ngân hàng";
+                    }else{
+                        $taikhoan_nganhang= $_POST['taikhoan_nganhang'];
+                    }
+                    if(!empty($error)){
 
-                    insert_nganhang($ten_nganhang,$taikhoan_nganhang);
-                    $thongbao = "Thêm thành công";
+                    }else{
+                        insert_nganhang($ten_nganhang,$taikhoan_nganhang);
+                        $thongbao = "Thêm thành công";
+                    }
+                   
                 }
                 include "nganhang/add.php";
                 break;

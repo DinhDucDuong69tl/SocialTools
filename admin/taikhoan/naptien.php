@@ -12,6 +12,7 @@
                             <form action="index.php?act=naptienuser" method="post" enctype="multipart/form-data">
                                 <div class="input-group mb-3">
                                         <label class="col-sm-2 col-form-label col-form-label-lg">User</label>
+                                        <div class="col-sm-10">
                                             <select class="default-select form-control wide" name="id_user">
                                                 <?php
                                                     foreach($listtaikhoan as $user){
@@ -23,11 +24,15 @@
                                                 ?>
                                                 
                                             </select>
+                                            <span><?php if(isset($error['id_user'])) echo $error['id_user']?></span>
+                                        </div>
                                 </div>
                                 <div class="mb-3 row">
                                     <label class="col-sm-2 col-form-label col-form-label-lg">Money</label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" name="money">
+                                        <span><?php if(isset($error['money'])) echo $error['money']?></span>
+
                                     </div>
                                 </div>
                                 <div class="row">
