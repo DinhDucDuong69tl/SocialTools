@@ -255,73 +255,7 @@
 		}
 	}
 	
-	var lineChart2 = function(){
-		//gradient line chart
-		if(jQuery('#lineChart_2').length > 0 ){
-			
-			const lineChart_2 = document.getElementById("lineChart_2").getContext('2d');
-			//generate gradient
-			const lineChart_2gradientStroke = lineChart_2.createLinearGradient(500, 0, 100, 0);
-			lineChart_2gradientStroke.addColorStop(0, "rgba(91, 207, 197, 1)");
-			lineChart_2gradientStroke.addColorStop(1, "rgba(91, 207, 197, 0.5)");
 
-			Chart.controllers.line = Chart.controllers.line.extend({
-				draw: function () {
-					draw.apply(this, arguments);
-					let nk = this.chart.chart.ctx;
-					let _stroke = nk.stroke;
-					nk.stroke = function () {
-						nk.save();
-						nk.shadowColor = 'rgba(0, 0, 128, .2)';
-						nk.shadowBlur = 10;
-						nk.shadowOffsetX = 0;
-						nk.shadowOffsetY = 10;
-						_stroke.apply(this, arguments)
-						nk.restore();
-					}
-				}
-			});
-				
-			lineChart_2.height = 100;
-
-			new Chart(lineChart_2, {
-				type: 'line',
-				data: {
-					defaultFontFamily: 'Poppins',
-					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
-					datasets: [
-						{
-							label: "My First dataset",
-							data: [25, 20, 60, 41, 66, 45, 80],
-							borderColor: lineChart_2gradientStroke,
-							borderWidth: "2",
-							backgroundColor: 'transparent', 
-							pointBackgroundColor: 'rgba(91, 207, 197, 0.5)'
-						}
-					]
-				},
-				options: {
-					legend: false, 
-					scales: {
-						yAxes: [{
-							ticks: {
-								beginAtZero: true, 
-								max: 100, 
-								min: 0, 
-								stepSize: 20, 
-								padding: 10
-							}
-						}],
-						xAxes: [{ 
-							ticks: {
-								padding: 5
-							}
-						}]
-					}
-				}
-			});
-		}
-	}
 	var lineChart3 = function(){
 		//dual line chart
 		if(jQuery('#lineChart_3').length > 0 ){
