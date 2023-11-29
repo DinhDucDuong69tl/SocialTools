@@ -12,7 +12,7 @@
                                         <!-- Tab panes -->
                                         <div class="tab-content">
                                             <div role="tabpanel" class="tab-pane fade show active" id="first">
-                                                <img class="img-fluid" src="../images/card/1.png" alt="">
+                                                <img class="img-fluid" src="<?php echo $img ?>" alt="">
                                             </div>
                                         </div>
                                         <!-- <div class="tab-slide-content new-arrival-product mb-4 mb-xl-0">
