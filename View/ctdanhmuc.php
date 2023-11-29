@@ -9,10 +9,10 @@
 					<div class="row">
  					<?php 
 						foreach ($listphanmem as $phanmem ){
-							extract($phanmem);
-							echo "<pre>";
-							print_r($phanmem);
-							echo "</pre>";
+							// extract($phanmem);
+							// echo "<pre>";
+							// print_r($phanmem);
+							// echo "</pre>";
 						?>						
 							<div class="col-xl-6">
 									<div class="card text-center">
