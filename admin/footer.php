@@ -39,6 +39,16 @@
 	<script src="../js/dlabnav-init.js"></script>
 	<script src="../js/demo.js"></script>
     <!-- <script src="js/styleSwitcher.js"></script> -->
+    
+    
+
+    <!-- Chart ChartJS plugin files -->
+    <script src="../vendor/chart.js/Chart.bundle.min.js"></script>
+    <script src="../js/plugins-init/chartjs-init.js"></script>
+
+	
+</body>
+</html>
 	
 </body>
 </html>

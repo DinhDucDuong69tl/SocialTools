@@ -282,66 +282,16 @@
                 include "nganhang/list.php"; 
                 break;
 
-            // //binhluan
-            // case 'dsbl':                   
-            //     $listbinhluan=loadall_binhluan(0);     
-            //     include "binhluan/list.php"; 
-            //     break;
-            // case 'xoabl':
-            //     if(isset($_GET['id'])&&($_GET['id']>0)){
-            //         delete_binhluan($_GET['id']);
-            //     }
-            //     $sql = "select * from binhluan";
-            //     $listbinhluan = pdo_query($sql);
-            //     include "binhluan/list.php"; 
-            //     break;
-
-            // //bill
             case 'listbill':
                 $listbill=loadall_bill_allUser();
                 include "bill/list.php"; 
                 break;
-            // case 'xoadh':
-            //     if(isset($_GET['id'])&&($_GET['id']>0)){
-            //         delete_cart($_GET['id']);
-            //         delete_bill($_GET['id']);
-            //     }
-            //     $sql = "select * from bill";
-            //     $listbill=loadall_bill("",0);
-            //     include "bill/listbill.php"; 
-            //     break;
-            // case 'suadh':
-            //     if(isset($_GET['id'])&&($_GET['id']>0)){
-            //         $bill=loadone_bill($_GET['id']);
-            //     }      
-            //     $listbill = loadall_bill();    
-            //     include "bill/updatebill.php"; 
-            //     break;
-            // case 'updatedh':
-            //     if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
-            //         $ttgh = $_POST['ttgh'];
-            //         $id = $_POST['id'];
-            //         update_bill($id,$ttgh);
-            //         $thongbao = "Cập nhật thành công";
-            //     }
-            //     $listbill=loadall_bill("",0);
-            //     include "bill/listbill.php"; 
-            //     break;
 
-            // //thong ke hang hoa
-            // case 'thongke':
-            //     if(isset($_POST['kyw'])&&($_POST['kyw']!="")){
-            //         $kyw = $_POST['kyw'];
-            //     }else{
-            //         $kyw ="";
-            //     }
-            //     $listthongke=loadall_thongke();
-            //     include "thongke/list.php"; 
-            //     break;
-            // case 'bieudo':
-            //     $listthongke=loadall_thongke();
-            //     include "thongke/bieudo.php"; 
-            //     break;
+                case 'thongke':
+                    $listbill=loadall_bill_allUser();
+                    include "thongke/thongke.php"; 
+                    break;
+       
             default:
                 include "home.php";
                 break;             
