@@ -9,7 +9,7 @@
 					<div class="row">
  					<?php 
 						foreach ($listphanmem as $phanmem ){
-							// extract($phanmem);
+							extract($phanmem);
 							// echo "<pre>";
 							// print_r($phanmem);
 							// echo "</pre>";
