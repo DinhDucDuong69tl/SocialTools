@@ -1,3 +1,4 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <div class="content-body">
             <div class="container-fluid">	
                  <div class="row">
@@ -58,7 +59,7 @@
 					// print_r($tong_tien_nap);
 					// echo "</pre>";
 					// echo "<pre>";
-					// print_r($tong_bill);
+					// print_r($tong_bill_thang);
 					// echo "</pre>";
 					?>
 </div>
@@ -67,11 +68,49 @@
                                         <h4 class="card-title">Gradient Line Chart</h4>
                                     </div>
                                     <div class="card-body">
-                                        <canvas id="lineChart_2"></canvas>
+									<canvas id="myChart" style="width:100%"></canvas>
                                     </div>
                                 </div>
+								<script>
+																
+																// Fetch data from the server
+								fetch('thongke/bieudo.php')
+								.then(response => response.json())
+								.then(data => {
+									console.log('Data from server:', data);
+									// Extract xValues, yValues, and barColors from the fetched data
+								const xValues = data.map(entry => entry.month);
+								const yValues = data.map(entry => entry.bill);
+								const barColors = ["red", "green", "blue", "orange", "brown"]; // You can modify this based on your preferences
 
-                                <script> 
+								// Create the bar chart
+								new Chart("myChart", {
+									type: "bar",
+									data: {
+										labels: xValues,
+										datasets: [{
+										backgroundColor: barColors,
+										data: yValues
+										}]
+									},
+									options: {
+										legend: {display: false},
+										title: {
+										display: true,
+										text: "World Wine Production 2023"
+										}
+									}
+								});
+
+									// Now you can use the data to create your chart
+									// For example, you can use Chart.js here
+									// Make sure to include the necessary Chart.js code
+									// and use the 'data' variable to populate your chart
+								})
+								.catch(error => console.error('Error fetching data:', error));
+							</script>
+						
+                                <!-- <script> 
                                 	var lineChart2 = function(){
 		//gradient line chart
 		if(jQuery('#lineChart_2').length > 0 ){
@@ -140,5 +179,5 @@
 		}
 	}
                             </script>
-                                
+                                 -->
 

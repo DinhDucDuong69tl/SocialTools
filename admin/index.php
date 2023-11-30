@@ -292,6 +292,7 @@
                 $tong_tien_nap = tong_tien_nap();
                 $tong_tien_bill = tong_tien_bill();
                 $tong_bill = tong_bill();
+                // $tong_bill_thang = tong_bill_thang();
                 include "thongke/thongke.php"; 
                 break;
        
