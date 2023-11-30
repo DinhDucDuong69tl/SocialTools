@@ -23,6 +23,9 @@
         Scripts
     ***********************************-->
     <!-- Required vendors -->
+    <script
+src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
     <script src="../vendor/global/global.min.js"></script>
 	<script src="../vendor/chart.js/Chart.bundle.min.js"></script>
 	<script src="../vendor/jquery-nice-select/js/jquery.nice-select.min.js"></script>
