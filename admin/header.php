@@ -653,7 +653,7 @@
 							<span class="nav-text">Ngân hàng</span>
 						</a>
                     </li>	
-					<li><a class="" href="#">
+					<li><a class="" href="index.php?act=thongke">
 							<i class="flaticon-072-printer"></i>
 							<span class="nav-text">Thống kê</span>
 						</a>

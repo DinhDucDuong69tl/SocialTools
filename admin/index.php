@@ -6,6 +6,7 @@
     require "../model/bill.php";
     require "../model/nganhang.php";
     require "../model/function.php";
+    require "../model/thongke.php";
   
     require "header.php";
 
@@ -287,10 +288,12 @@
                 include "bill/list.php"; 
                 break;
 
-                case 'thongke':
-                    $listbill=loadall_bill_allUser();
-                    include "thongke/thongke.php"; 
-                    break;
+            case 'thongke':
+                $tong_tien_nap = tong_tien_nap();
+                $tong_tien_bill = tong_tien_bill();
+                $tong_bill = tong_bill();
+                include "thongke/thongke.php"; 
+                break;
        
             default:
                 include "home.php";

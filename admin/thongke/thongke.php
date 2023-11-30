@@ -11,8 +11,8 @@
 									
 								</div>
 								<div>
-									<h2 class="text-white invoice-num">2478</h2>
-									<span class="text-white fs-18">Total Invoices</span>
+									<h2 class="text-white invoice-num"><?php echo $tong_tien_nap['SUM(`total_money`)'] ?></h2>
+									<span class="text-white fs-18">Tổng Tiền Nạp</span>
 								</div>
 							</div>
 						</div>
@@ -28,8 +28,8 @@
 									
 								</div>
 								<div>
-									<h2 class="text-white invoice-num">983</h2>
-									<span class="text-white fs-18">Paid Invoices</span>
+									<h2 class="text-white invoice-num"><?php echo $tong_tien_bill['SUM(`price`)'] ?></h2>
+									<span class="text-white fs-18">Tổng Tiền Bill</span>
 								</div>
 							</div>
 						</div>
@@ -44,12 +44,23 @@
 									
 								</div>
 								<div>
-									<h2 class="text-white invoice-num">2478</h2>
-									<span class="text-white fs-18">Total Invoices</span>
+									<h2 class="text-white invoice-num"><?php echo $tong_bill['COUNT(`id_bill`)'] ?></h2>
+									<span class="text-white fs-18">Tổng Bill</span>
 								</div>
 							</div>
 						</div>
 					</div>
+					<?php
+					// echo "<pre>";
+					// print_r($tong_tien_bill);
+					// echo "</pre>";
+					// echo "<pre>";
+					// print_r($tong_tien_nap);
+					// echo "</pre>";
+					// echo "<pre>";
+					// print_r($tong_bill);
+					// echo "</pre>";
+					?>
 </div>
                     <div class="card">
                                     <div class="card-header">
