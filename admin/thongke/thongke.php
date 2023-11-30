@@ -72,16 +72,26 @@
                                     </div>
                                 </div>
 								<script>
+									// var origin_chart = { "month": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], 
+									// 					   "bill": { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }}
 																
+									var origin_chart_month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+									var origin_chart_bill = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 																// Fetch data from the server
 								fetch('thongke/bieudo.php')
 								.then(response => response.json())
 								.then(data => {
 									console.log('Data from server:', data);
 									// Extract xValues, yValues, and barColors from the fetched data
-								const xValues = data.map(entry => entry.month);
-								const yValues = data.map(entry => entry.bill);
-								const barColors = ["red", "green", "blue", "orange", "brown"]; // You can modify this based on your preferences
+								// const convert_data = { "month": data.map(entry => entry.month), "bill": }
+								const convert_bill = data.map(entry => {
+									const stt = origin_chart_month.indexOf(entry.month);
+									origin_chart_bill[stt] = entry.bill;
+								})
+								console.log(convert_bill)
+								const xValues = origin_chart_month;
+								const yValues = origin_chart_bill;
+								const barColors = ["green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green"]; // You can modify this based on your preferences
 
 								// Create the bar chart
 								new Chart("myChart", {
