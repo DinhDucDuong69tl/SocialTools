@@ -51,7 +51,7 @@
                     if( $_SESSION['user']['money'] >= $price){
                         $money_user =  $_SESSION['user']['money'] - $price;
                         $_SESSION['user']['money'] = $money_user;
-                        $date =date('h:i:sa  d/m/Y');
+                        $date =date('Y/m/d h:i:sa ');
                         update_money_mua($id_user,$money_user);
                         $id_bill = insert_bill($id_phanmem, $id_user, $date);
                         
