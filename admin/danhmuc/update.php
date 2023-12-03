@@ -3,7 +3,6 @@
         extract($dm);
     }
 
-    
     // $hinhpath="../upload/danhmuc/".$img;
     // if(is_file($hinhpath)){
     //     $img = " <img src='".$hinhpath."' heigth='50px'; width='50px' >";
@@ -20,6 +19,11 @@
                     <div class="card-header">
                         <h4 class="card-title">Update danh mục</h4>
                     </div>
+     <?php               
+    echo "<pre>";
+    print_r($dm);
+    echo "</pre>";
+    ?>
                     <div class="card-body">
                         <div class="basic-form">
                             <form action="index.php?act=updatedm" method="post"  enctype="multipart/form-data">

@@ -54,7 +54,8 @@
 												<div class="d-table mb-2">
 													<p class="price float-start d-block"><?php echo $price ?> </p> <b class="text-success">  VND</b>
                                                 </div>
-                                                <p class="text-content"><?php echo $des ?></p>
+                                                <?php $text_with_br = nl2br($des);?>                                                
+                                                <p class="text-content"><?php echo $text_with_br ?></p>
                                                 <form action="index.php?act=muangay" method="post">
 												<input type="hidden" name="id_phanmem" value="<?php echo $id_phanmem ?>">
 												<input type="hidden" name="price" value="<?php echo $price ?>">
