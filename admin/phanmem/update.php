@@ -54,7 +54,7 @@
                                             </div>                                            
 											<span class="input-group-text">Upload</span>
                                         </div>
-                                        <img src="<?php if(isset($img)&&($img!="")) echo $img?>" alt="" class="me-3 rounded" width="150" height="150">
+                                        <img src="<?php if(isset($pm['img'])&&($pm['img']!="")) echo $pm['img']?>" alt="" class="me-3 rounded" width="150" height="150">
                                     </div>
                                 </div>
                                 <div class="mb-3 row">

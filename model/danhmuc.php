@@ -32,9 +32,9 @@
         return $dm;
     }
 
-    function update_danhmuc($id_danhmuc,$ten_danhmuc, $img){
-        if($img!=""){
-            $sql = "UPDATE `danhmuc` SET `ten_danhmuc` = '{$ten_danhmuc}', `img` = '{$img}' WHERE `id_danhmuc` = {$id_danhmuc}";
+    function update_danhmuc($id_danhmuc,$ten_danhmuc, $img_danhmuc){
+        if($img_danhmuc!=""){
+            $sql = "UPDATE `danhmuc` SET `ten_danhmuc` = '{$ten_danhmuc}', `img` = '{$img_danhmuc}' WHERE `id_danhmuc` = {$id_danhmuc}";
         }else{
             $sql = "UPDATE `danhmuc` SET `ten_danhmuc` = '{$ten_danhmuc}' WHERE `id_danhmuc` = {$id_danhmuc}";
         }        
