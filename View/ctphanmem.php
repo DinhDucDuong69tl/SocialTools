@@ -12,7 +12,7 @@
                                         <!-- Tab panes -->
                                         <div class="tab-content">
                                             <div role="tabpanel" class="tab-pane fade show active" id="first">
-                                                <img class="img-fluid" src="../images/card/1.png" alt="">
+                                                <img class="img-fluid" src="<?php echo $img ?>" alt="">
                                             </div>
                                         </div>
                                         <!-- <div class="tab-slide-content new-arrival-product mb-4 mb-xl-0">
@@ -54,7 +54,8 @@
 												<div class="d-table mb-2">
 													<p class="price float-start d-block"><?php echo $price ?> </p> <b class="text-success">  VND</b>
                                                 </div>
-                                                <p class="text-content"><?php echo $des ?></p>
+                                                <?php $text_with_br = nl2br($des);?>                                                
+                                                <p class="text-content"><?php echo $text_with_br ?></p>
                                                 <form action="index.php?act=muangay" method="post">
 												<input type="hidden" name="id_phanmem" value="<?php echo $id_phanmem ?>">
 												<input type="hidden" name="price" value="<?php echo $price ?>">
@@ -83,7 +84,7 @@
 									<div class="card text-center">
 										<a href="index.php?act=ctphanmem&id_phanmem=<?php echo $id_phanmem ?>">
 											<div class="card-header">
-												<img class="card-img-top img-fluid" src="../images/card/1.png" alt="Card image cap">                              
+												<img class="card-img-top img-fluid" src="<?php echo $img ?>" alt="Card image cap">                              
 											</div>
 											<div class="card-body">
 											<b><h5 class="card-title"><?php echo $ten_phanmem ?></h5></b>

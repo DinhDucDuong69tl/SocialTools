@@ -6,6 +6,7 @@
     require "../model/taikhoan.php";
     require "../model/nganhang.php";
     require "../model/function.php";
+    require "../model/thongke.php";
 
     session_start();
     if(isset($_SESSION['user']['ten_user'])){
@@ -50,7 +51,7 @@
                     if( $_SESSION['user']['money'] >= $price){
                         $money_user =  $_SESSION['user']['money'] - $price;
                         $_SESSION['user']['money'] = $money_user;
-                        $date =date('h:i:sa  d/m/Y');
+                        $date =date('Y/m/d h:i:sa ');
                         update_money_mua($id_user,$money_user);
                         $id_bill = insert_bill($id_phanmem, $id_user, $date);
                         
@@ -76,6 +77,9 @@
             case 'profile':         
                 $id_user = $_SESSION['user']['id_user'];
                 $listlsnap = loadall_ls_nap($id_user);
+                $tong_tien_nap_user = tong_tien_nap_user($id_user);
+                $tong_tien_bill_user = tong_tien_bill_user($id_user);
+                $tong_bill_user =  tong_bill_user($id_user);
                 require "profile.php";                    
                 break;
             // case 'logout':

@@ -18,7 +18,7 @@
 									<div class="card text-center">
 										<a href="index.php?act=ctphanmem&id_phanmem=<?php echo $id_phanmem ?>">
 											<div class="card-header">
-												<img class="card-img-top img-fluid" src="../images/card/1.png" alt="Card image cap">                              
+												<img class="card-img-top img-fluid" src="<?php echo $phanmem[2] ?>" alt="Card image cap">                              
 											</div>
 											<div class="card-body">
 											<b><h5 class="card-title"><?php echo $ten_phanmem ?></h5></b>

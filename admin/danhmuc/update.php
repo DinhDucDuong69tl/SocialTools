@@ -3,7 +3,6 @@
         extract($dm);
     }
 
-    
     // $hinhpath="../upload/danhmuc/".$img;
     // if(is_file($hinhpath)){
     //     $img = " <img src='".$hinhpath."' heigth='50px'; width='50px' >";

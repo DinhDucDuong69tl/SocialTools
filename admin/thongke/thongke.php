@@ -1,3 +1,4 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <div class="content-body">
             <div class="container-fluid">	
                  <div class="row">
@@ -11,8 +12,8 @@
 									
 								</div>
 								<div>
-									<h2 class="text-white invoice-num">2478</h2>
-									<span class="text-white fs-18">Total Invoices</span>
+									<h2 class="text-white invoice-num"><?php echo $tong_tien_nap['SUM(`total_money`)'] ?></h2>
+									<span class="text-white fs-18">Tổng Tiền Nạp</span>
 								</div>
 							</div>
 						</div>
@@ -28,8 +29,8 @@
 									
 								</div>
 								<div>
-									<h2 class="text-white invoice-num">983</h2>
-									<span class="text-white fs-18">Paid Invoices</span>
+									<h2 class="text-white invoice-num"><?php echo $tong_tien_bill['SUM(`price`)'] ?></h2>
+									<span class="text-white fs-18">Tổng Tiền Bill</span>
 								</div>
 							</div>
 						</div>
@@ -44,23 +45,82 @@
 									
 								</div>
 								<div>
-									<h2 class="text-white invoice-num">2478</h2>
-									<span class="text-white fs-18">Total Invoices</span>
+									<h2 class="text-white invoice-num"><?php echo $tong_bill['COUNT(`id_bill`)'] ?></h2>
+									<span class="text-white fs-18">Tổng Bill</span>
 								</div>
 							</div>
 						</div>
 					</div>
+					<?php
+					// echo "<pre>";
+					// print_r($tong_tien_bill);
+					// echo "</pre>";
+					// echo "<pre>";
+					// print_r($tong_tien_nap);
+					// echo "</pre>";
+					// echo "<pre>";
+					// print_r($tong_bill_thang);
+					// echo "</pre>";
+					?>
 </div>
                     <div class="card">
                                     <div class="card-header">
                                         <h4 class="card-title">Gradient Line Chart</h4>
                                     </div>
                                     <div class="card-body">
-                                        <canvas id="lineChart_2"></canvas>
+									<canvas id="myChart" style="width:100%"></canvas>
                                     </div>
                                 </div>
+								<script>
+									// var origin_chart = { "month": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], 
+									// 					   "bill": { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }}
+																
+									var origin_chart_month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+									var origin_chart_bill = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+																// Fetch data from the server
+								fetch('thongke/bieudo.php')
+								.then(response => response.json())
+								.then(data => {
+									console.log('Data from server:', data);
+									// Extract xValues, yValues, and barColors from the fetched data
+								// const convert_data = { "month": data.map(entry => entry.month), "bill": }
+								const convert_bill = data.map(entry => {
+									const stt = origin_chart_month.indexOf(entry.month);
+									origin_chart_bill[stt] = entry.bill;
+								})
+								console.log(convert_bill)
+								const xValues = origin_chart_month;
+								const yValues = origin_chart_bill;
+								const barColors = ["green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green", "green"]; // You can modify this based on your preferences
 
-                                <script> 
+								// Create the bar chart
+								new Chart("myChart", {
+									type: "bar",
+									data: {
+										labels: xValues,
+										datasets: [{
+										backgroundColor: barColors,
+										data: yValues
+										}]
+									},
+									options: {
+										legend: {display: false},
+										title: {
+										display: true,
+										text: "World Wine Production 2023"
+										}
+									}
+								});
+
+									// Now you can use the data to create your chart
+									// For example, you can use Chart.js here
+									// Make sure to include the necessary Chart.js code
+									// and use the 'data' variable to populate your chart
+								})
+								.catch(error => console.error('Error fetching data:', error));
+							</script>
+						
+                                <!-- <script> 
                                 	var lineChart2 = function(){
 		//gradient line chart
 		if(jQuery('#lineChart_2').length > 0 ){
@@ -129,5 +189,5 @@
 		}
 	}
                             </script>
-                                
+                                 -->
 
