@@ -3,6 +3,7 @@
                 <div class="row">
                     <?php
                         extract($onephanmem);
+
                     ?>
                     <div class="col-lg-12">
                         <div class="card">
@@ -14,27 +15,11 @@
                                             <div role="tabpanel" class="tab-pane fade show active" id="first">
                                                 <img class="img-fluid" src="../images/card/1.png" alt="">
                                             </div>
-                                        </div>
-                                        <!-- <div class="tab-slide-content new-arrival-product mb-4 mb-xl-0">
-                                            
-                                            <ul class="nav slide-item-list mt-3" role="tablist">
-                                                <li role="presentation" class="show">
-                                                    <a href="#first" role="tab" data-bs-toggle="tab">
-                                                        <img class="img-fluid" src="images/tab/1.jpg" alt="" width="50">
-                                                    </a>
-                                                </li>
-                                                <li role="presentation">
-                                                    <a href="#second" role="tab" data-bs-toggle="tab"><img class="img-fluid" src="images/tab/2.jpg" alt="" width="50"></a>
-                                                </li>
-                                                <li role="presentation">
-                                                    <a href="#third" role="tab" data-bs-toggle="tab"><img class="img-fluid" src="images/tab/3.jpg" alt="" width="50"></a>
-                                                </li>
-												<li role="presentation">
-                                                    <a href="#for" role="tab" data-bs-toggle="tab"><img class="img-fluid" src="images/tab/4.jpg" alt="" width="50"></a>
-                                                </li>
-                                            </ul>
-                                        </div> -->
-                                    </div>
+                                        </div>      
+										
+										
+
+		
                                     <!--Tab slider End-->
                                     <div class="col-xl-9 col-lg-6  col-md-6 col-xxl-7 col-sm-12">
                                         <div class="product-detail-content">
@@ -55,11 +40,11 @@
 													<p class="price float-start d-block"><?php echo $price ?> </p> <b class="text-success">  VND</b>
                                                 </div>
                                                 <p class="text-content"><?php echo $des ?></p>
-                                                <form action="index.php?act=muangay" method="post">
-												<input type="hidden" name="id_phanmem" value="<?php echo $id_phanmem ?>">
-												<input type="hidden" name="price" value="<?php echo $price ?>">
-												<input type="submit" value="Mua ngay" name="muangay" class="btn btn-primary">
-											    </form>
+												
+                                                <input type="hidden" class="idphanmem" name="id_phanmem" value="<?php echo $id_phanmem ?>">
+												<input type="hidden" class="price" name="price" value="<?php echo $price ?>">
+												<input type="submit" value="Mua ngay" name="muangay" class="btn btn-primary btn-mua">
+											   
 												
                                             </div>
                                         </div>
@@ -89,11 +74,14 @@
 											<b><h5 class="card-title"><?php echo $ten_phanmem ?></h5></b>
 											<!-- <p class="card-text">This is a wider card with supporting text and below as a natural lead-in to the additional content. This content is a little <br> bit longer. Some quick example text to build the bulk</p> -->
 											<p class=""><b class="text-dark">Giá : </b> <?php echo $price ?> <b class="text-success">VND</b></p>
-											<form action="index.php?act=muangay" method="post">
-												<input type="hidden" name="id_phanmem" value="<?php echo $id_phanmem ?>">
-												<input type="hidden" name="price" value="<?php echo $price ?>">
-												<input type="submit" value="Mua ngay" name="muangay" class="btn btn-primary">
-											</form>
+											
+												<input type="hidden" class="idphanmem" name="id_phanmem" value="<?php echo $id_phanmem ?>">
+												<input type="hidden" class="price" name="price" value="<?php echo $price ?>">
+												<input type="submit" value="Mua ngay" name="muangay" class="btn btn-primary btn-mua">
+												
+											
+												
+						
 											</div>
 										</a>
 									</div>
