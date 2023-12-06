@@ -19,6 +19,9 @@
     if(isset($_GET['act'])&&($_GET['act'])!=""){
         $act = $_GET['act'];
         switch($act){
+            case 'danhmuc':                 
+                require "danhmuc.php";      
+                break;
             case 'ctphanmem':                 
                 if(isset($_GET['id_phanmem'])&&($_GET['id_phanmem']>0)) {                    
                     $onephanmem = loadone_phanmem($_GET['id_phanmem']); 
@@ -38,31 +41,31 @@
                     require "home.php";
                 }                       
                 break;
-            case 'muangay':
-                if(isset($_POST['muangay'])&&($_POST['muangay'])){
-                    if(isset($_SESSION['user'])){
-                        $id_user =  $_SESSION['user']['id_user'];
-                    }else{
-                        $id_user = 0;
-                    }
+            // case 'muangay':
+            //     if(isset($_POST['muangay'])&&($_POST['muangay'])){
+            //         if(isset($_SESSION['user'])){
+            //             $id_user =  $_SESSION['user']['id_user'];
+            //         }else{
+            //             $id_user = 0;
+            //         }
 
-                    $id_phanmem = $_POST['id_phanmem'];
-                    $price = $_POST['price'];
-                    if( $_SESSION['user']['money'] >= $price){
-                        $money_user =  $_SESSION['user']['money'] - $price;
-                        $_SESSION['user']['money'] = $money_user;
-                        $date =date('Y/m/d h:i:sa ');
-                        update_money_mua($id_user,$money_user);
-                        $id_bill = insert_bill($id_phanmem, $id_user, $date);
+            //         $id_phanmem = $_POST['id_phanmem'];
+            //         $price = $_POST['price'];
+            //         if( $_SESSION['user']['money'] >= $price){
+            //             $money_user =  $_SESSION['user']['money'] - $price;
+            //             $_SESSION['user']['money'] = $money_user;
+            //             $date =date('Y/m/d h:i:sa ');
+            //             update_money_mua($id_user,$money_user);
+            //             $id_bill = insert_bill($id_phanmem, $id_user, $date);
                         
-                        $thongbao = "Mua thành công hãy xem bill";
+            //             $thongbao = "Mua thành công hãy xem bill";
                         
-                    }else{
-                        $thongbao = "Bạn không đủ tiền để mua";
+            //         }else{
+            //             $thongbao = "Bạn không đủ tiền để mua";
 
-                    }  
-                    require "muangay.php";                                                       
-                }
+            //         }  
+            //         require "muangay.php";                                                       
+            //     }
                 
                 // 
                 break;

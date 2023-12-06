@@ -36,6 +36,8 @@
 	<link rel="stylesheet" href="../vendor/nouislider/nouislider.min.css">
 	<!-- Style css -->
     <link href="../css/style.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+
 	
 </head>
 <body>
@@ -634,6 +636,11 @@
 							<li><a href="transaction-details.html">Transaction Details</a></li>	
 						</ul> -->
 					</li>	
+					<li><a class="" href="index.php?act=danhmuc" >
+							<i class="flaticon-045-heart"></i>
+							<span class="nav-text">Danh mục</span>
+						</a>
+                    </li>	
 					<li><a class="" href="index.php?act=naptien" >
 							<i class="flaticon-013-checkmark"></i>
 							<span class="nav-text">Nạp tiền</span>
