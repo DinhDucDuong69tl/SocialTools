@@ -32,13 +32,18 @@
 	<script src="../vendor/nouislider/nouislider.min.js"></script>
 	<script src="../vendor/wnumb/wNumb.js"></script>
 	
-	<!-- Dashboard 1 -->
+	<!-- Dashboard 1 -->zz
 	<script src="../js/dashboard/dashboard-1.js"></script>
 
     <script src="../js/custom.min.js"></script>
 	<script src="../js/dlabnav-init.js"></script>
 	<script src="../js/demo.js"></script>
     <!-- <script src="js/styleSwitcher.js"></script> -->
+
+    <!-- Click Buy -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/jstest/script.js"></script>
 	
 </body>
 </html>

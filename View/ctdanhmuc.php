@@ -1,8 +1,4 @@
 
-		
-<!--**********************************
-     Home
-***********************************-->	
 
 <div class="content-body">
                 <div class="container-fluid">	
@@ -24,13 +20,13 @@
 											<b><h5 class="card-title"><?php echo $ten_phanmem ?></h5></b>
 											<!-- <p class="card-text">This is a wider card with supporting text and below as a natural lead-in to the additional content. This content is a little <br> bit longer. Some quick example text to build the bulk</p> -->
 											<p class=""><b class="text-dark">Giá : </b> <?php echo $price ?> <b class="text-success">VND</b></p>
-											<form action="index.php?act=muangay" method="post">
-												<input type="hidden" name="id_phanmem" value="<?php echo $id_phanmem ?>">
-												<input type="hidden" name="price" value="<?php echo $price ?>">
-												<input type="submit" value="Mua ngay" name="muangay" class="btn btn-primary">
-											</form>
 											</div>
 										</a>
+										<div class="card-title">
+										<input type="hidden" class="idphanmem" name="idphanmem" value="<?php echo $id_phanmem ?>">
+										<input type="hidden" class="price" name="price" value="<?php echo $price ?>">
+										<input type="submit" value="Mua ngay" name="muangay" class="btn btn-primary btn-mua">
+										</div>
 									</div>
 							</div>
 								
