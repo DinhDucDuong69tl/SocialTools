@@ -35,8 +35,9 @@
                                                 <td><?php echo $ten_phanmem?></td>
                                                 <td><img src="<?php echo $img?>" alt="" class="me-3 rounded" width="150" height="150"></td>
                                                 <td><?php echo $price?></td>
-                                                <td><?php echo $link?></td>
-                                                <td><?php echo $des?></td>
+                                                <td><a href="<?php echo $link?>"><span class="badge light badge-success">Links</span></a></td>
+                                                <?php $text_with_br = nl2br($des) ?> 
+                                                <td><?php echo $text_with_br?></td>
                                                 <td><?php echo $name_danhmuc = load_name_danhmuc($id_danhmuc)?></td>
                                                 <td>
 													<div class="d-flex">
