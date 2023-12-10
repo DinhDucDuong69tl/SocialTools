@@ -9,7 +9,8 @@
     session_start();
 
     // showArr($_SESSION);
-    // showArr($_POST);
+    $nganhang = loadall_nganhang();
+    // showArr($nganhang);
     
     if(isset($_SESSION['user'])){
         $id_user =  $_SESSION['user']['id_user'];
@@ -32,12 +33,15 @@ if(isset($_POST['action']) && $_POST['action'] == 'mua'){
             $data1 = "Mua Thành Công";
             $data2 = "Cảm Ơn Bạn Đã Mua!";
             $data3 = "success";
-            echo json_encode(array('data1' => $data1, 'data2' => $data2, 'data3' => $data3));
+            $data4 = 1;
+            echo json_encode(array('data1' => $data1, 'data2' => $data2, 'data3' => $data3, 'data4' => $data4));
         }else{
             $data1 = "Mua Thất Bại";
-            $data2 = "Bạn Không Đủ Tiền Để Mua!";
+            $data2 = "Bạn Không Đủ Tiền Để Mua Cui Lòng Nạp Thêm";
             $data3 = "error";
-            echo json_encode(array('data1' => $data1, 'data2' => $data2, 'data3' => $data3));
+            $conlai = $price - $_SESSION['user']['money'];
+            $dataimgbank = "https://qr.sepay.vn/img?acc=1026047424&bank=vietcombank&amount={$conlai}&des=SocialTools%20".$_SESSION['user']['id_user']."";
+            echo json_encode(array('data1' => $data1, 'data2' => $data2, 'data3' => $data3, 'data4' => $dataimgbank, 'conlai' => $conlai));
 
         }  
 } else {
