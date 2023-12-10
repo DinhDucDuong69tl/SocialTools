@@ -70,7 +70,7 @@
 									<div class="card text-center">
 										<a href="index.php?act=ctphanmem&id_phanmem=<?php echo $phanmem['id_phanmem'] ?>">
 											<div class="card-header">
-												<img class="card-img-top img-fluid" src="<?php echo $phanmem['img'] ?>" style="width: 600px; height: 400px;" alt="Card image cap">                              
+												<img class="card-img-top img-fluid" src="<?php echo $phanmem['img'] ?>" style="width: 700px; height: 400px;" alt="Card image cap">                              
 											</div>
 											<div class="card-body">
 											<b><h5 class="card-title"><?php echo  $phanmem['ten_phanmem'] ?></h5></b>

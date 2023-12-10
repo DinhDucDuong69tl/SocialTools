@@ -13,8 +13,10 @@
 							<div class="col-xl-6">
 									<div class="card text-center">
 										<a href="index.php?act=ctphanmem&id_phanmem=<?php echo $id_phanmem ?>">
+									
 											<div class="card-header">
-												<img class="card-img-top img-fluid" src="<?php echo $phanmem[2] ?>" style="width: 300px; height: 300px;" alt="Card image cap">                              
+												<img class="card-img-top img-fluid" src="<?php echo $phanmem[2] ?>" alt="Card image cap" style="width: 700px; height: 400px;" >                              
+												
 											</div>
 											<div class="card-body">
 											<b><h5 class="card-title"><?php echo $ten_phanmem ?></h5></b>
