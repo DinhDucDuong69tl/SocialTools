@@ -14,7 +14,7 @@
                                     <div class="col-xl-3 col-lg-6  col-md-6 col-xxl-5 ">                                   
                                         <div class="tab-content">
                                             <div role="tabpanel" class="tab-pane fade show active" id="first">
-                                                <img class="img-fluid" src="<?php echo $onephanmem['img'] ?>" alt="">
+                                                <img class="img-fluid" src="<?php echo $onephanmem['img'] ?>" style="width: 300px; height: 300px;" alt="">
                                             </div>
                                         </div> 
                                     </div>
@@ -32,7 +32,7 @@
 													</ul>
 												</div>
 												<div class="d-table mb-2">
-                                                    <b><p style="font-size: 40px; color:#5BCFC5"><?php echo $onephanmem['price'] ?> <b class="text-success">  VND</b> </p> </b>
+                                                    <b><p style="font-size: 40px; color:#5BCFC5"><?php echo number_format($onephanmem['price'])?> <b class="text-success">  VND</b> </p> </b>
 													
                                                 </div>
                                                 <?php $text_with_br = nl2br($onephanmem['des']) ?>                                                
@@ -70,12 +70,12 @@
 									<div class="card text-center">
 										<a href="index.php?act=ctphanmem&id_phanmem=<?php echo $phanmem['id_phanmem'] ?>">
 											<div class="card-header">
-												<img class="card-img-top img-fluid" src="<?php echo $phanmem['img'] ?>" alt="Card image cap">                              
+												<img class="card-img-top img-fluid" src="<?php echo $phanmem['img'] ?>" style="width: 600px; height: 400px;" alt="Card image cap">                              
 											</div>
 											<div class="card-body">
 											<b><h5 class="card-title"><?php echo  $phanmem['ten_phanmem'] ?></h5></b>
 											<!-- <p class="card-text">This is a wider card with supporting text and below as a natural lead-in to the additional content. This content is a little <br> bit longer. Some quick example text to build the bulk</p> -->
-											<p class=""><b class="text-dark">Giá : </b> <?php echo $phanmem['price'] ?> <b class="text-success">VND</b></p>
+											<p class=""><b class="text-dark">Giá : </b> <?php echo number_format($phanmem['price'])?> <b class="text-success">VND</b></p>
 												
 											</div>
 										</a>
