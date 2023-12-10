@@ -641,11 +641,11 @@
 							<span class="nav-text">Danh mục</span>
 						</a>
                     </li>	
-					<li><a class="" href="index.php?act=naptien" >
+					<!-- <li><a class="" href="index.php?act=naptien" >
 							<i class="flaticon-013-checkmark"></i>
 							<span class="nav-text">Nạp tiền</span>
 						</a>
-                    </li>		
+                    </li>		 -->
 					<li><a class="" href="index.php?act=bill" >
 							<i class="flaticon-043-menu"></i>
 							<span class="nav-text">Bill</span>
