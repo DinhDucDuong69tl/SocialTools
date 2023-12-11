@@ -41,7 +41,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'mua'){
             $data3 = "error";
             $conlai = $price - $_SESSION['user']['money'];
             $dataimgbank = "https://qr.sepay.vn/img?acc=1026047424&bank=vietcombank&amount={$conlai}&des=SocialTools%20".$_SESSION['user']['id_user']."";
-            echo json_encode(array('data1' => $data1, 'data2' => $data2, 'data3' => $data3, 'data4' => $dataimgbank, 'conlai' => $conlai));
+            echo json_encode(array('data1' => $data1, 'data2' => $data2, 'data3' => $data3, 'data4' => $dataimgbank, 'conlai' => number_format($conlai)));
 
         }  
 } else {
